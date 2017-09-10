@@ -1,0 +1,6 @@
+---
+- debug:
+    msg: "{{ vars[(role_path | basename).split('.')[-1].replace('-','_')] }}"
+  when: DEBUG | bool | default(false)
+
+- include: configure.yml

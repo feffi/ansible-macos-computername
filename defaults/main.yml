@@ -1,0 +1,13 @@
+---
+osx_computername:
+  # The macOS "user-friendly name for the system", appears mainly in GUI.
+  computer: ""
+
+  # The macOS hostname associated with hostname(1) and gethostname(3).
+  host: ""
+
+  # The macOS hostname used for Bonjour-aware services on the local network.
+  localhost: ""
+
+  # The hosts Netbios advertising name.
+  netbios: ""

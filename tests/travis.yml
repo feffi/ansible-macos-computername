@@ -1,0 +1,7 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  vars:
+    computername: "osx-test"
+  roles:
+    - ansible-osx-computername

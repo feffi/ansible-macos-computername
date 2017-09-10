@@ -1,0 +1,25 @@
+---
+- name: "Setup the 'ComputerName' in macOS"
+  become: true
+  shell: "scutil --set ComputerName {{ osx_computername.computer }}"
+  when: osx_computername.computer is defined
+
+- name: "Setup the 'LocalHostName' in macOS"
+  become: true
+  shell: "scutil --set LocalHostName {{ osx_computername.localhost }}"
+  when: osx_computername.localhost is defined
+
+- name: "Setup the 'HostName' in macOS"
+  become: true
+  shell: "scutil --set HostName {{ osx_computername.host }}"
+  when: osx_computername.host is defined
+
+- name: "Setup the network NetBIOS name"
+  become: true
+  osx_defaults:
+    domain: "com.apple.smb.server"
+    key: "NetBIOSName"
+    type: "string"
+    value: "{{ osx_computername.netbios }}"
+    state: present
+  when: osx_computername.netbios is defined

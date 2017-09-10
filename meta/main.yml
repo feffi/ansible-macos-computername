@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: Kevin Wennemuth
+  description: A ansible role to setup a macOS hostname, smb name, netbios.
+  license: MIT
+  min_ansible_version: 2.3
+  platforms:
+    - name: Darwin
+      versions:
+        - all
+  galaxy_tags:
+    - system
+    - osx
+    - computername
+    - netbios
+    - hostname
+dependencies: []
