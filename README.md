@@ -13,7 +13,7 @@ hash_behaviour = merge
 
 ## Install
 Just add the role to your ``requirements.yml`` file:
-```
+```yaml
 - src: https://github.com/feffi/ansible-macos-computername.git
   name: feffi.macos-computername
 ```
@@ -21,7 +21,7 @@ Just add the role to your ``requirements.yml`` file:
 ## Role Variables
 All role based variables are listed below, along with default values:
 
-```
+```yaml
 macos_computername:
   # The macOS "user-friendly name for the system", appears mainly in GUI.
   computer: ""
@@ -41,6 +41,7 @@ None.
 
 ## Example Playbook
 
+```yaml
     - hosts: all
       roles:
         - { role: feffi.macos-computername }
@@ -57,3 +58,4 @@ Or with local parameters:
               netbios: "marvin"
             }
           }
+```
