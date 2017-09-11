@@ -2,11 +2,11 @@
 - hosts: 127.0.0.1
   connection: local
   vars:
-    osx_computername:
-      computer: "osx-test-computer"
-      host: "osx-test-host"
-      localhost: "osx-test-localhost"
-      netbios: "osx-test-netbios"
+    macos_computername:
+      computer: "macos-test-computer"
+      host: "macos-test-host"
+      localhost: "macos-test-localhost"
+      netbios: "macos-test-netbios"
     DEBUG: true
   roles:
-    - ansible-osx-computername
+    - ansible-macos-computername

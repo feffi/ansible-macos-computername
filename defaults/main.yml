@@ -1,5 +1,5 @@
 ---
-osx_computername:
+macos_computername:
   # The macOS "user-friendly name for the system", appears mainly in GUI.
   computer: ""
 

@@ -1,7 +1,7 @@
-# ansible-osx-computername
+# ansible-macos-computername
 A Ansible role to setup a macOS hostname, smb name, netbios.
 
-[![Build Status](https://travis-ci.org/feffi/ansible-osx-computername.svg?branch=master)](https://travis-ci.org/feffi/ansible-osx-computername)
+[![Build Status](https://travis-ci.org/feffi/ansible-macos-computername.svg?branch=master)](https://travis-ci.org/feffi/ansible-macos-computername)
 
 ## Requirements
 - Ansible 2.3
@@ -14,15 +14,15 @@ hash_behaviour = merge
 ## Install
 Just add the role to your ``requirements.yml`` file:
 ```
-- src: https://github.com/feffi/ansible-osx-computername.git
-  name: feffi.osx-computername
+- src: https://github.com/feffi/ansible-macos-computername.git
+  name: feffi.macos-computername
 ```
 
 ## Role Variables
 All role based variables are listed below, along with default values:
 
 ```
-osx_computername:
+macos_computername:
   # The macOS "user-friendly name for the system", appears mainly in GUI.
   computer: ""
 
@@ -43,14 +43,14 @@ None.
 
     - hosts: all
       roles:
-        - { role: feffi.osx-computername }
+        - { role: feffi.macos-computername }
 
 Or with local parameters:
 
     - hosts: all
       roles:
-        - { role: feffi.osx-computername,
-            osx_computername: {
+        - { role: feffi.macos-computername,
+            macos_computername: {
               computer: "marvin",
               host: "marvin",
               localhost: "marvin",
