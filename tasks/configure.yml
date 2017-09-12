@@ -4,6 +4,7 @@
   shell: "scutil --get {{ item }}"
   register: macos_computername_current_names
   changed_when: false
+  ignore_errors: true
   with_items:
     - "ComputerName"
     - "LocalHostName"
