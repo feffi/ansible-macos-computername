@@ -24,16 +24,16 @@ All role based variables are listed below, along with default values:
 ```yaml
 macos_computername:
   # The macOS "user-friendly name for the system", appears mainly in GUI.
-  computer: ""
+  ComputerName: ""
 
   # The macOS hostname associated with hostname(1) and gethostname(3).
-  host: ""
+  HostName: ""
 
   # The macOS hostname used for Bonjour-aware services on the local network.
-  localhost: ""
+  LocalHostName: ""
 
   # The hosts Netbios advertising name.
-  netbios: ""
+  NetBIOSName: ""
 ```
 
 ## Dependencies
@@ -52,10 +52,10 @@ Or with local parameters:
       roles:
         - { role: feffi.macos-computername,
             macos_computername: {
-              computer: "marvin",
-              host: "marvin",
-              localhost: "marvin",
-              netbios: "marvin"
+              ComputerName: "marvin",
+              HostName: "marvin",
+              LocalHostName: "marvin",
+              NetBIOSName: "marvin"
             }
           }
 ```

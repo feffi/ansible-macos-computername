@@ -3,10 +3,10 @@
   connection: local
   vars:
     macos_computername:
-      computer: "macos-test-computer"
-      host: "macos-test-host"
-      localhost: "macos-test-localhost"
-      netbios: "macos-test-netbios"
+      ComputerName: "macos-test-computer"
+      HostName: "macos-test-host"
+      LocalHostName: "macos-test-localhost"
+      NetBIOSName: "macos-test-netbios"
     DEBUG: true
   roles:
     - ansible-macos-computername

@@ -1,25 +1,32 @@
 ---
-- name: "Setup the 'ComputerName' in macOS"
+- name: "Get current computer names in macOS"
   become: true
-  shell: "scutil --set ComputerName {{ macos_computername.computer }}"
-  when: macos_computername.computer is defined
+  shell: "scutil --get {{ item }}"
+  register: macos_computername_current_names
+  changed_when: false
+  with_items:
+    - "ComputerName"
+    - "LocalHostName"
+    - "HostName"
 
-- name: "Setup the 'LocalHostName' in macOS"
+- name: "Setup the computer names in macOS if applicable"
   become: true
-  shell: "scutil --set LocalHostName {{ macos_computername.localhost }}"
-  when: macos_computername.localhost is defined
+  shell: "scutil --set {{ item.item }} {{ macos_computername[item.item] }}"
+  with_items: "{{ macos_computername_current_names.results }}"
+  when: macos_computername[item.item] is defined and item.stdout != macos_computername[item.item]
 
-- name: "Setup the 'HostName' in macOS"
+- name: "Get the network NetBIOS name"
   become: true
-  shell: "scutil --set HostName {{ macos_computername.host }}"
-  when: macos_computername.host is defined
+  shell: "defaults read /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName"
+  register: macos_computername_current_netbios
+  changed_when: false
 
 - name: "Setup the network NetBIOS name"
   become: true
   osx_defaults:
-    domain: "com.apple.smb.server"
+    domain: "/Library/Preferences/SystemConfiguration/com.apple.smb.server"
     key: "NetBIOSName"
     type: "string"
-    value: "{{ macos_computername.netbios }}"
+    value: "{{ macos_computername.NetBIOSName | upper }}"
     state: present
-  when: macos_computername.netbios is defined
+  when: macos_computername.NetBIOSName is defined and ( macos_computername.NetBIOSName | upper ) != macos_computername_current_netbios.stdout
