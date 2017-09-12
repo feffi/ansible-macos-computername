@@ -43,6 +43,12 @@ None.
 
 ```yaml
     - hosts: all
+      vars:
+        macos_computername:
+          ComputerName: "tardis"
+          HostName: "tardis"
+          LocalHostName: "tardis"
+          NetBIOSName: "tardis"
       roles:
         - { role: feffi.macos-computername }
 ```
