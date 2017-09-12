@@ -45,9 +45,10 @@ None.
     - hosts: all
       roles:
         - { role: feffi.macos-computername }
-
+```
 Or with local parameters:
 
+```yaml
     - hosts: all
       roles:
         - { role: feffi.macos-computername,
