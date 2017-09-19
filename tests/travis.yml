@@ -9,4 +9,4 @@
       NetBIOSName: "macos-test-netbios"
     DEBUG: true
   roles:
-    - ansible-macos-computername
+    - { role: ansible-macos-computername }
