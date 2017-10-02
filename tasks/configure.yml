@@ -31,4 +31,4 @@
     type: "string"
     value: "{{ macos_computername.NetBIOSName | upper }}"
     state: present
-  when: macos_computername.NetBIOSName is defined and ( macos_computername.NetBIOSName | upper ) != macos_computername_current_netbios.stdout
+  when: macos_computername.NetBIOSName is defined and ( macos_computername.NetBIOSName | upper ) != macos_computername_current_netbios.stdout | upper
